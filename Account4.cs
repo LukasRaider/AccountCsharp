@@ -16,9 +16,7 @@ class Person
         this.name = name;
         this.age = age;
         //this.myAccounts = new Account[10];
-        
     }
-    
     public void writeAccounts()
     { //lze doplnit if(countOfAccounts>=1)...else Write("Nemá účet")
         int suma = 0;//3
@@ -68,7 +66,6 @@ class Account
     {
         return $"{this.owner.name}'s account has a balance of {this.balance}";
     }
-    
 }
 class testAccount
 {

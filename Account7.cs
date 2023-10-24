@@ -4,43 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Account7
+namespace Account7;
+class Account
 {
-    class Account
+    int balance;
+    public void insertInto(int amount)
     {
-        public int balance;
-        public void insertInto(int amount)
-        {
-            balance += amount;
-        }
-        public void writeBalance()
-        {
-            Console.WriteLine($"Na účtu je: {balance}");
-        }
-        public void transferTo(Account ucet, int castka)
-        {
-            ucet.balance += castka;
-            this.balance -= castka;
-        }
-
+        balance += amount;
     }
-    class TestAccount
+    public void writeBalance()
     {
-        public static void Mainx(string[] args)
-        {
-            Account u1 = new Account();
-            Account u2 = new Account();
-            int amount;
-            amount =int.Parse( Console.ReadLine());
-            u1.insertInto(amount); u2.insertInto(100);
-            u1.transferTo(u2, 50);
-            u1.writeBalance(); u2.writeBalance();
-            u1.insertInto(-10);
-            u1.transferTo(u2, 10);
-            Console.Write($"{nameof(u1)}:");
-            u1.writeBalance();
-            Console.Write($"{nameof(u2)}:");
-            u2.writeBalance();
-        }
+        Console.WriteLine($"Na účtu je: {balance}");
+    }
+    public void transferTo(Account ucet, int castka)
+    {
+        ucet.balance += castka;
+        balance -= castka;
+    }
+    public static void Mainx(String[] args)
+    {
+        int amount;                                                     //
+        Account u1 = new Account();
+        Console.WriteLine("Zadej částku pro vložení/výběr peněz (celé číslo)"); //
+                                                                                // amount = int.Parse(Console.ReadLine());
+                                                                                //amount = Convert.ToInt32(Console.ReadLine());//
+        amount = Int32.Parse(Console.ReadLine());
+        u1.insertInto(amount);
+        Console.WriteLine($"Zůstatek je {u1.balance}");
     }
 }
